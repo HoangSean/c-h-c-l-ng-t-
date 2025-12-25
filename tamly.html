@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc Nghiệm Tâm Lý Học - Full 21 Câu</title>
+    <style>
+        :root { --primary: #2563eb; --bg: #f8fafc; --text: #1e293b; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; max-width: 900px; margin: 0 auto; line-height: 1.6; }
+        .header { text-align: center; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 5px solid var(--primary); }
+        .q-card { background: white; padding: 25px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .q-text { font-weight: 700; font-size: 1.1rem; margin-bottom: 15px; color: #0f172a; display: block; }
+        .options-grid { display: flex; flex-direction: column; gap: 8px; }
+        .option { display: flex; align-items: flex-start; padding: 12px 15px; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .option:hover { background: #f1f5f9; border-color: var(--primary); }
+        input[type="radio"] { margin-top: 5px; margin-right: 15px; transform: scale(1.2); flex-shrink: 0; }
+        #submit-area { position: sticky; bottom: 20px; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); display: flex; gap: 10px; z-index: 100; }
+        #btn-submit { flex: 2; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+        #btn-reset { flex: 1; padding: 15px; background: #64748b; color: white; border: none; border-radius: 8px; cursor: pointer; }
+        .correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #166534; font-weight: 600; }
+        .wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b; }
+        #result-box { display: none; margin-bottom: 20px; padding: 25px; border-radius: 12px; text-align: center; font-size: 1.4rem; font-weight: bold; animation: slideDown 0.5s; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>NGÂN HÀNG CÂU HỎI CƠ HỌC LƯỢNG TỬ</h1>
+    <p>Trọn bộ 21 câu hỏi từ ảnh tài liệu</p>
+</div>
+
+<div id="result-box"></div>
+
+<form id="quizForm">
+    <div class="q-card">
+        <span class="q-text">1. "Chè khi lạnh có vẻ ngọt hơn lúc đang nóng" là biểu hiện của quy luật nào?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q1" value="0"> Quy luật ngưỡng cảm giác.</label>
+            <label class="option"><input type="radio" name="q1" value="0"> Quy luật tác động qua lại giữa các cảm giác khác loại.</label>
+            <label class="option"><input type="radio" name="q1" value="1"> Quy luật tương phản đồng thời của cảm giác.</label>
+            <label class="option"><input type="radio" name="q1" value="0"> Quy luật thích ứng trong cảm giác.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">2. Đặc điểm "tình cảm có tính ổn định" được hiểu là:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q2" value="0"> Tình cảm khi đã hình thành thì tồn tại vĩnh viễn, không bao giờ mất đi.</label>
+            <label class="option"><input type="radio" name="q2" value="0"> Tình cảm hình thành nhanh chóng và nhưng khó thay đổi.</label>
+            <label class="option"><input type="radio" name="q2" value="1"> Tình cảm khi đã hình thành thì thường bền vững và khó thay đổi trong thời gian ngắn.</label>
+            <label class="option"><input type="radio" name="q2" value="0"> Tình cảm chỉ ổn định trong thời kỳ con người đã trưởng thành.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">3. Sự khác nhau chủ yếu giữa nhận thức và tình cảm là:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q3" value="1"> Nhận thức giúp con người phản ánh thế giới, còn tình cảm giúp con người bộc lộ thái độ với thế giới.</label>
+            <label class="option"><input type="radio" name="q3" value="0"> Nhận thức và tình cảm đều chỉ nhằm thỏa mãn nhu cầu sinh học.</label>
+            <label class="option"><input type="radio" name="q3" value="0"> Nhận thức gắn với rung động cảm xúc, còn tình cảm gắn với quá trình tư duy.</label>
+            <label class="option"><input type="radio" name="q3" value="0"> Nhận thức biểu hiện qua thái độ ổn định, còn tình cảm biểu hiện qua suy luận logic.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">4. "Sức tập trung chú ý" được hiểu đúng là:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q4" value="0"> Khả năng duy trì chú ý rất lâu bất kể mục tiêu.</label>
+            <label class="option"><input type="radio" name="q4" value="1"> Khả năng dồn năng lượng tâm lý vào phạm vi hẹp, đúng trọng tâm, đúng thời điểm của nhiệm vụ.</label>
+            <label class="option"><input type="radio" name="q4" value="0"> Chia đều chú ý cho nhiều việc.</label>
+            <label class="option"><input type="radio" name="q4" value="0"> Chuyển hướng chú ý linh hoạt.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">5. "Lan vô tình ăn phải ớt cay, nước mắt, nước mũi chảy giàn giụa, mắt như mờ đi, tai như ù lên". Hiện tượng này có liên quan đến quy luật nào của cảm giác?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q5" value="0"> Quy luật thích ứng của cảm giác.</label>
+            <label class="option"><input type="radio" name="q5" value="1"> Quy luật tác động lẫn nhau giữa các cảm giác khác loại.</label>
+            <label class="option"><input type="radio" name="q5" value="0"> Quy luật ngưỡng của cảm giác.</label>
+            <label class="option"><input type="radio" name="q5" value="0"> Quy luật tác động lẫn nhau giữa các cảm giác cùng loại.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">6. Một nhà văn khắc họa nhân vật A Phủ trong Vợ chồng A Phủ của Tô Hoài dựa trên những nét tiêu biểu về số phận người dân miền núi bị áp bức... Đây là ví dụ của:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q6" value="1"> Điển hình hóa</label>
+            <label class="option"><input type="radio" name="q6" value="0"> Chắp ghép</label>
+            <label class="option"><input type="radio" name="q6" value="0"> Nhấn mạnh</label>
+            <label class="option"><input type="radio" name="q6" value="0"> Liên hợp</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">7. Những người dạy nhạc có thể phân biệt hàng trăm sắc thái âm thanh khác nhau... Điều này thể hiện rõ nhất quy luật nào?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q7" value="0"> Quy luật cảm ứng.</label>
+            <label class="option"><input type="radio" name="q7" value="1"> Quy luật ngưỡng cảm giác.</label>
+            <label class="option"><input type="radio" name="q7" value="0"> Quy luật tác động qua lại giữa các cảm giác khác loại.</label>
+            <label class="option"><input type="radio" name="q7" value="0"> Quy luật tác động qua lại giữa các cảm giác cùng loại.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">8. Cố vấn học tập vừa trả lời email phụ huynh, vừa theo dõi bảng điểm mở trên hệ thống và kiểm tra lịch hẹn tư vấn. Thuộc tính chủ yếu:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q8" value="0"> Bền vững chú ý.</label>
+            <label class="option"><input type="radio" name="q8" value="1"> Phân phối chú ý.</label>
+            <label class="option"><input type="radio" name="q8" value="0"> Di chuyển chú ý.</label>
+            <label class="option"><input type="radio" name="q8" value="0"> Tập trung chú ý.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">9. Mỗi cá nhân có hệ thống thái độ, giá trị, hành vi riêng biệt làm nên nét "không ai giống ai". Điều này phản ánh đặc điểm nào của nhân cách?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q9" value="0"> Tính phát triển</label>
+            <label class="option"><input type="radio" name="q9" value="1"> Tính độc đáo</label>
+            <label class="option"><input type="radio" name="q9" value="0"> Tính xã hội - lịch sử</label>
+            <label class="option"><input type="radio" name="q9" value="0"> Tính ổn định</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">10. Giáo viên muốn xây dựng bầu không khí học tập tích cực, nên khuyến khích một số học sinh xung phong phát biểu để tạo hào hứng cho cả lớp. Giáo viên áp dụng quy luật nào?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q10" value="0"> Quy luật thích ứng</label>
+            <label class="option"><input type="radio" name="q10" value="0"> Quy luật tương phản</label>
+            <label class="option"><input type="radio" name="q10" value="0"> Quy luật hình thành tình cảm</label>
+            <label class="option"><input type="radio" name="q10" value="1"> Quy luật lây lan</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">11. "Tính bền vững của chú ý" đối lập trực tiếp với:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q11" value="1"> Sự phân tán chú ý.</label>
+            <label class="option"><input type="radio" name="q11" value="0"> Sức tập trung.</label>
+            <label class="option"><input type="radio" name="q11" value="0"> Di chuyển chú ý.</label>
+            <label class="option"><input type="radio" name="q11" value="0"> Lựa chọn chú ý.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">12. Khi đứng trước một hoàn cảnh có vấn đề, sự khác nhau chủ yếu giữa tư duy và tưởng tượng là:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q12" value="1"> Tư duy hướng vào việc phân tích và phát hiện bản chất...; tưởng tượng thiên về xây dựng hình ảnh mới có thể vượt ra ngoài hiện thực.</label>
+            <label class="option"><input type="radio" name="q12" value="0"> Tư duy và tưởng tượng đều phản ánh sự vật trực tiếp qua cảm giác và tri giác.</label>
+            <label class="option"><input type="radio" name="q12" value="0"> Tư duy chỉ tạo ra hình ảnh cụ thể, còn tưởng tượng chỉ tạo ra khái niệm trừu tượng.</label>
+            <label class="option"><input type="radio" name="q12" value="0"> Tư duy luôn gắn với ngôn ngữ, còn tưởng tượng hoàn toàn tách rời khỏi ngôn ngữ.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">13. Một học sinh có khả năng cảm thụ âm nhạc tinh tế, nhanh chóng học thuộc giai điệu mới và biểu diễn tốt. Trường hợp này phản ánh:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q13" value="0"> Xu hướng nhân cách</label>
+            <label class="option"><input type="radio" name="q13" value="1"> Năng lực chuyên biệt trong lĩnh vực âm nhạc</label>
+            <label class="option"><input type="radio" name="q13" value="0"> Tính ổn định của nhân cách</label>
+            <label class="option"><input type="radio" name="q13" value="0"> Khí chất lạc quan</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">14. Một sinh viên thường xuyên chọn tham gia các hoạt động thiện nguyện, yêu thích việc giúp đỡ người khác. Hành vi lặp lại này phản ánh xu hướng nhân cách:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q14" value="0"> Khuynh hướng hành vi chịu chi phối bởi hoàn cảnh tức thời</label>
+            <label class="option"><input type="radio" name="q14" value="1"> Định hướng giá trị và động cơ ổn định, bền vững của cá nhân</label>
+            <label class="option"><input type="radio" name="q14" value="0"> Sự thay đổi ngẫu nhiên về cảm xúc</label>
+            <label class="option"><input type="radio" name="q14" value="0"> Tính ổn định sinh học của nhân cách</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">15. Trong quá trình thực tập, bạn gặp một lớp học có nhiều học sinh ít hợp tác. Vận dụng kiến thức bản chất xã hội - lịch sử tâm lý người, bạn nên:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q15" value="1"> Tổ chức các hoạt động học tập theo nhóm, tạo điều kiện để học sinh giao tiếp, chia sẻ.</label>
+            <label class="option"><input type="radio" name="q15" value="0"> Nhắc nhở học sinh cần thay đổi ngay, nếu không sẽ bị phê bình công khai.</label>
+            <label class="option"><input type="radio" name="q15" value="0"> Yêu cầu học sinh luyện tập kỹ năng giao tiếp ở nhà.</label>
+            <label class="option"><input type="radio" name="q15" value="0"> Giải thích rằng tính cách rụt rè vốn do di truyền và ít thay đổi.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">16. Một họa sĩ vẽ nhân vật quan lại xưa với chiếc mũ cực to để ám chỉ sự phô trương quyền lực. Đây là sản phẩm của cách sáng tạo nào?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q16" value="0"> Liên hợp</label>
+            <label class="option"><input type="radio" name="q16" value="1"> Nhấn mạnh</label>
+            <label class="option"><input type="radio" name="q16" value="0"> Loại suy</label>
+            <label class="option"><input type="radio" name="q16" value="0"> Điển hình hóa</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">17. Dấu hiệu bản chất để phân biệt ghi nhớ có chủ định với không chủ định:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q17" value="0"> Cường độ kích thích.</label>
+            <label class="option"><input type="radio" name="q17" value="1"> Có mục đích ghi nhớ đặt trước và sử dụng biện pháp/ý chí để đạt mục đích.</label>
+            <label class="option"><input type="radio" name="q17" value="0"> Độ dài tài liệu.</label>
+            <label class="option"><input type="radio" name="q17" value="0"> Sự hấp dẫn thị giác.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">18. Đâu là mệnh đề đúng dùng để phân biệt cảm giác và tri giác?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q18" value="0"> Cảm giác phản ánh riêng lẻ từng thuộc tính của sự vật hiện tượng, tri giác phản ánh khái quát...</label>
+            <label class="option"><input type="radio" name="q18" value="0"> Cảm giác phản ánh thuộc tính bề ngoài..., tri giác phản ánh thuộc tính bản chất, bên trong...</label>
+            <label class="option"><input type="radio" name="q18" value="1"> Cảm giác phản ánh riêng lẻ từng thuộc tính bề ngoài của sự vật hiện tượng, tri giác phản ánh sự vật hiện tượng một cách hoàn chỉnh.</label>
+            <label class="option"><input type="radio" name="q18" value="0"> Cảm giác phản ánh sự vật trực tiếp, tri giác phản ánh sự vật gián tiếp thông qua phương tiện...</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">19. Bạn sắp xếp lịch học cho HS trước kiểm tra 1 tuần. Phương án nào khớp các quy luật đã biết về ghi nhớ - quên?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q19" value="0"> Học dồn 1 buổi tối trước ngày kiểm tra.</label>
+            <label class="option"><input type="radio" name="q19" value="1"> Ôn phân tán nhiều phiên ngắn; nhấn mạnh trọng tâm ở đầu - cuối; chèn thực hành ngắn.</label>
+            <label class="option"><input type="radio" name="q19" value="0"> Chỉ đọc lướt nhiều lần cho "quen mắt".</label>
+            <label class="option"><input type="radio" name="q19" value="0"> Học khi cảm xúc mạnh, bỏ qua ngày mệt.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">20. Để đánh giá học sinh bằng lời hiệu quả, giáo viên cần khách quan, chi tiết, có tính động viên và gợi mở. Điều này thể hiện chức năng nào của giao tiếp?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q20" value="0"> Chức năng giáo dục và phát triển nhân cách</label>
+            <label class="option"><input type="radio" name="q20" value="0"> Chức năng điều chỉnh, điều khiển hành vi</label>
+            <label class="option"><input type="radio" name="q20" value="0"> Chức năng nhận thức và đánh giá lẫn nhau</label>
+            <label class="option"><input type="radio" name="q20" value="1"> Tất cả đều đúng</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">21. Trong các ví dụ sau, tình huống nào thể hiện tính tự chủ của ý chí?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q21" value="0"> Một sinh viên đặt mục tiêu đạt học bổng và lập kế hoạch học tập chi tiết để theo đuổi.</label>
+            <label class="option"><input type="radio" name="q21" value="1"> Một học sinh kiềm chế cảm xúc, không nổi nóng khi bị bạn trêu chọc trong lớp.</label>
+            <label class="option"><input type="radio" name="q21" value="0"> Một sinh viên kiên nhẫn làm lại thí nghiệm nhiều lần dù liên tục thất bại.</label>
+            <label class="option"><input type="radio" name="q21" value="0"> Một học sinh dứt khoát chọn hướng giải quyết sau khi cân nhắc các phương án khác nhau.</label>
+        </div>
+    </div>
+
+
+    <div class="q-card">
+        <span class="q-text">22. Một đứa trẻ sinh ra khỏe mạnh nhưng sống trong môi trường nghèo nàn, ít cơ hội giao tiếp xã hội. Theo quan điểm Tâm lý học, điều này cho thấy:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q22" value="0"> Sinh học quyết định toàn bộ sự phát triển nhân cách</label>
+            <label class="option"><input type="radio" name="q22" value="0"> Môi trường chỉ tác động nhỏ, không ảnh hưởng đáng kể đến nhân cách</label>
+            <label class="option"><input type="radio" name="q22" value="1"> Yếu tố sinh học là tiền đề, nhưng môi trường xã hội điều kiện cho sự phát triển nhân cách</label>
+            <label class="option"><input type="radio" name="q22" value="0"> Nhân cách hình thành chủ yếu do di truyền</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">23. Vai trò của nhận thức cảm tính trong mối quan hệ với nhận thức lý tính được thể hiện như thế nào?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q23" value="0"> Nhận thức cảm tính quyết định hoàn toàn nội dung và kết quả của nhận thức lý tính.</label>
+            <label class="option"><input type="radio" name="q23" value="1"> Nhận thức cảm tính cung cấp tài liệu trực tiếp, làm cơ sở cho sự hình thành và phát triển của nhận thức lý tính</label>
+            <label class="option"><input type="radio" name="q23" value="0"> Nhận thức cảm tính luôn đúng đắn, không cần được kiểm tra bởi nhận thức lý tính.</label>
+            <label class="option"><input type="radio" name="q23" value="0"> Nhận thức cảm tính không có vai trò gì trong quá trình nhận thức vì nó chỉ phản ánh bề ngoài sự vật.</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">24. Một học sinh lần đầu thấy ký hiệu “π” trong toán học nhưng chỉ sau khi được giải thích “π là 3,14…”, em mới thực sự hiểu được vấn đề. Đây là minh chứng cho:</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q24" value="0"> Tính ổn định</label>
+            <label class="option"><input type="radio" name="q24" value="0"> Tính đối tượng</label>
+            <label class="option"><input type="radio" name="q24" value="1"> Tính có ý nghĩa</label>
+            <label class="option"><input type="radio" name="q24" value="0"> Tính ảo ảnh</label>
+        </div>
+    </div>
+
+    <div class="q-card">
+        <span class="q-text">25. Trong một tiết dạy thử, giáo sinh nhận thấy có học sinh chăm chú, hứng thú với bài giảng, nhưng cũng có học sinh tỏ ra thờ ơ và không tập trung, dù tất cả đều được nghe cùng một nội dung. Nếu vận dụng kiến thức về tính chủ thể của tâm lý người, giáo sinh cần rút ra điều gì?</span>
+        <div class="options-grid">
+            <label class="option"><input type="radio" name="q25" value="1"> Cần chấp nhận sự khác biệt trong phản ứng tâm lý của học sinh và tìm cách đa dạng hóa phương pháp dạy học.</label>
+            <label class="option"><input type="radio" name="q25" value="0"> Nên thay đổi cách thức dạy học để toàn bộ học sinh đều phản ứng giống nhau, vì như vậy mới bảo đảm sự công bằng và thống nhất trong giờ học.</label>
+            <label class="option"><input type="radio" name="q25" value="0"> Tập trung vào nhóm học sinh hứng thú, vì điều đó giúp giáo viên cảm thấy tự tin hơn.</label>
+            <label class="option"><input type="radio" name="q25" value="0"> Kết luận rằng những học sinh tỏ ra thờ ơ là do khả năng chú ý và tính cách bẩm sinh vốn kém, vì vậy rất khó thay đổi trong tương lai.</label>
+        </div>
+    </div>
+<div class="q-card">
+            <span class="q-text">26. Một học sinh nhút nhát dần trở nên tự tin hơn khi thường xuyên tham gia thảo luận nhóm, được thầy cô khuyến khích và bạn bè động viên. Trường hợp này minh họa:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q26" value="0"> Ảnh hưởng quyết định của khí chất bẩm sinh</label>
+                <label class="option"><input type="radio" name="q26" value="1"> Vai trò của giáo dục, hoạt động và giao tiếp trong việc hình thành, phát triển nhân cách</label>
+                <label class="option"><input type="radio" name="q26" value="0"> Sự tác động ngẫu nhiên của hoàn cảnh</label>
+                <label class="option"><input type="radio" name="q26" value="0"> Nhân cách bất biến, không thay đổi theo trải nghiệm</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">27. Một học sinh khi làm văn đã mô tả nhân vật chính thành các khía cạnh: ngoại hình, tính cách, hành động, rồi sau đó kết nối lại để làm nổi bật chủ đề tác phẩm. Trong trường hợp này, học sinh đã vận dụng những thao tác tư duy nào?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q27" value="0"> So sánh và cụ thể hóa</label>
+                <label class="option"><input type="radio" name="q27" value="1"> Phân tích và tổng hợp</label>
+                <label class="option"><input type="radio" name="q27" value="0"> Trừu tượng hóa và khái quát hóa</label>
+                <label class="option"><input type="radio" name="q27" value="0"> Khái quát hóa và cụ thể hóa</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">28. Đặc điểm "tình cảm có tính ổn định" được hiểu là:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q28" value="0"> Tình cảm khi đã hình thành thì tồn tại vĩnh viễn, không bao giờ mất đi.</label>
+                <label class="option"><input type="radio" name="q28" value="0"> Tình cảm hình thành nhanh chóng và nhưng khó thay đổi.</label>
+                <label class="option"><input type="radio" name="q28" value="1"> Tình cảm khi đã hình thành thì thường bền vững và khó thay đổi trong thời gian ngắn.</label>
+                <label class="option"><input type="radio" name="q28" value="0"> Tình cảm chỉ ổn định trong thời kỳ con người đã trưởng thành.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">29. "Cảm giác và tri giác đều thuộc nhận thức cảm tính và đều phản ánh những thuộc tính bề ngoài của sự vật hiện tượng". Thuật ngữ "bề ngoài" nêu trên được hiểu là:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q29" value="1"> Những thuộc tính bên ngoài của sự vật hiện tượng do các cơ quan cảm giác bên ngoài trực tiếp tiếp nhận.</label>
+                <label class="option"><input type="radio" name="q29" value="0"> Thuộc tính dùng để phân biệt với thuộc tính "bản chất" của nhận thức lý tính.</label>
+                <label class="option"><input type="radio" name="q29" value="0"> Vẻ biểu hiện ra bên ngoài của sự vật hiện tượng.</label>
+                <label class="option"><input type="radio" name="q29" value="0"> Sự phản ánh một cách riêng lẻ hay toàn vẹn các thuộc tính bên ngoài của sự vật hiện tượng.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">30. "Lan vô tình ăn phải ớt cay, nước mắt, nước mũi chảy giàn giụa, mắt như mờ đi, tai như ù lên". Hiện tượng này có liên quan đến quy luật nào của cảm giác?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q30" value="0"> Quy luật thích ứng của cảm giác.</label>
+                <label class="option"><input type="radio" name="q30" value="1"> Quy luật tác động lẫn nhau giữa các cảm giác khác loại.</label>
+                <label class="option"><input type="radio" name="q30" value="0"> Quy luật ngưỡng của cảm giác.</label>
+                <label class="option"><input type="radio" name="q30" value="0"> Quy luật tác động lẫn nhau giữa các cảm giác cùng loại.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">31. Nhận định nào sau đây khớp với nội dung định nghĩa trí nhớ, tránh nhầm với tư duy?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q31" value="0"> Trí nhớ tạo ra khái niệm mới từ phân tích - tổng hợp.</label>
+                <label class="option"><input type="radio" name="q31" value="1"> Trí nhớ là quá trình giữ gìn và tái hiện cái đã biết, sản phẩm thường ở dạng biểu tượng và tri thức.</label>
+                <label class="option"><input type="radio" name="q31" value="0"> Trí nhớ phản ánh trực tiếp thuộc tính đang tác động lên giác quan.</label>
+                <label class="option"><input type="radio" name="q31" value="0"> Trí nhớ luôn đòi hỏi cảm xúc mạnh.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">32. "Nhìn căn phòng sơn màu xanh nước biển giữa trời Đông giá rét, Đức cảm giác nhiệt độ phòng như lạnh hơn thường ngày". Đây là tên gọi của hiện tượng gì?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q32" value="1"> Tương phản đồng thời</label>
+                <label class="option"><input type="radio" name="q32" value="0"> Tương phản nối tiếp</label>
+                <label class="option"><input type="radio" name="q32" value="0"> Rối loạn cảm giác</label>
+                <label class="option"><input type="radio" name="q32" value="0"> Chuyển cảm giác</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">33. Những người dạy vĩ cầm có thể phân biệt hàng trăm sắc thái âm thanh khác nhau phát ra từ việc kéo đàn trong khi những người khác không đủ nhạy cảm để làm được điều tương tự. Điều này thể hiện rõ nhất quy luật nào của cảm giác?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q33" value="0"> Quy luật cảm ứng.</label>
+                <label class="option"><input type="radio" name="q33" value="1"> Quy luật ngưỡng cảm giác.</label>
+                <label class="option"><input type="radio" name="q33" value="0"> Quy luật tác động qua lại giữa các cảm giác khác loại.</label>
+                <label class="option"><input type="radio" name="q33" value="0"> Quy luật tác động qua lại giữa các cảm giác cùng loại.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">34. Cố vấn học tập vừa trả lời email phụ huynh, vừa theo dõi bảng điểm mở trên hệ thống và kiểm tra lịch hẹn tư vấn. Thuộc tính chủ yếu:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q34" value="0"> Bền vững chú ý.</label>
+                <label class="option"><input type="radio" name="q34" value="1"> Phân phối chú ý.</label>
+                <label class="option"><input type="radio" name="q34" value="0"> Di chuyển chú ý.</label>
+                <label class="option"><input type="radio" name="q34" value="0"> Tập trung chú ý.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">35. Đặc điểm nào sau đây cho thấy nhân cách không phải bẩm sinh mà hình thành qua hoạt động, giao tiếp và giáo dục?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q35" value="0"> Tính ổn định</label>
+                <label class="option"><input type="radio" name="q35" value="0"> Tính độc đáo</label>
+                <label class="option"><input type="radio" name="q35" value="1"> Tính xã hội – lịch sử</label>
+                <label class="option"><input type="radio" name="q35" value="0"> Tính thống nhất</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">36. Một trường trung học phổ thông thường xuyên tổ chức các hoạt động thiện nguyện để học sinh dần hình thành phẩm chất nhân ái. Nhà trường đã áp dụng quy luật nào trong đời sống tình cảm?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q36" value="0"> Quy luật thích ứng</label>
+                <label class="option"><input type="radio" name="q36" value="1"> Quy luật hình thành tình cảm</label>
+                <label class="option"><input type="radio" name="q36" value="0"> Quy luật tương phản</label>
+                <label class="option"><input type="radio" name="q36" value="0"> Quy luật lây lan</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">37. "Việc không biết rõ – đừng nói. Chuyện chưa xảy ra – đừng tùy tiện nói bừa. Chuyện về người khác – đừng nên bình luận." Điều này thể hiện rõ nhất chức năng nào của giao tiếp?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q37" value="0"> Chức năng thông tin hai chiều</label>
+                <label class="option"><input type="radio" name="q37" value="0"> Chức năng xúc cảm</label>
+                <label class="option"><input type="radio" name="q37" value="1"> Chức năng tổ chức và phối hợp hành động</label>
+                <label class="option"><input type="radio" name="q37" value="0"> Chức năng lắng nghe và phản hồi thông tin</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">38. Nhiều bạn trẻ rất bận tâm về nhận xét của người khác với mình, và đánh giá bản thân theo quan niệm của người khác, thay đổi bản thân để làm hài lòng mọi người. Đây là biểu hiện sự phát triển chưa đầy đủ của?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q38" value="0"> Xu hướng phát triển bản thân</label>
+                <label class="option"><input type="radio" name="q38" value="0"> Tính cách chưa ổn định</label>
+                <label class="option"><input type="radio" name="q38" value="0"> Nhu cầu giao tiếp, xây dựng mối quan hệ</label>
+                <label class="option"><input type="radio" name="q38" value="1"> Tự ý thức</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">39. Dấu hiệu bản chất để phân biệt ghi nhớ có chủ định với không chủ định:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q39" value="0"> Cường độ kích thích.</label>
+                <label class="option"><input type="radio" name="q39" value="1"> Có mục đích ghi nhớ đặt trước và sử dụng biện pháp/ý chí để đạt mục đích.</label>
+                <label class="option"><input type="radio" name="q39" value="0"> Độ dài tài liệu.</label>
+                <label class="option"><input type="radio" name="q39" value="0"> Sự hấp dẫn thị giác.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">40. Khi khoác lên mình màu áo của trường Đại học Sư phạm TP HCM để thi đấu trong giải bóng đá sinh viên thành phố, Tài cảm thấy rất vinh dự và tự hào, luôn cố gắng luyện tập và thi đấu hết sức mình cố gắng đạt giải cao cùng đồng đội mang thành tích về cho trường. Những cảm xúc và hành vi của Tài trong tình huống trên là biểu hiện của?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q40" value="0"> Ý thức về bản thân</label>
+                <label class="option"><input type="radio" name="q40" value="0"> Nhu cầu thể hiện bản thân</label>
+                <label class="option"><input type="radio" name="q40" value="0"> Nhu cầu thể hiện trong nhóm</label>
+                <label class="option"><input type="radio" name="q40" value="1"> Ý thức nhóm, ý thức tập thể</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">41. Một kỹ sư quan sát cách ong xây tổ theo cấu trúc lục giác và áp dụng nguyên tắc này để thiết kế hệ thống kho chứa hàng tiết kiệm diện tích. Đây là ví dụ của cách sáng tạo hình ảnh mới nào trong tưởng tượng?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q41" value="0"> Nhấn mạnh</label>
+                <label class="option"><input type="radio" name="q41" value="0"> Liên hợp</label>
+                <label class="option"><input type="radio" name="q41" value="0"> Điển hình hóa</label>
+                <label class="option"><input type="radio" name="q41" value="1"> Loại suy</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">42. Tại sao nói ý thức là hiểu biết của hiểu biết (nhận thức của nhận thức), là phản ánh tâm lý cao nhất chỉ riêng con người mới có?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q42" value="0"> Ý thức phản ánh thái độ của chúng ta với sự vật hiện tượng xung quanh</label>
+                <label class="option"><input type="radio" name="q42" value="0"> Ý thức phản ánh hiểu biết của chúng ta với thế giới xung quanh</label>
+                <label class="option"><input type="radio" name="q42" value="0"> Ý thức phản ánh thế giới quan của con người về thế giới</label>
+                <label class="option"><input type="radio" name="q42" value="1"> Ý thức phản ánh bằng ngôn ngữ, là khả năng con người hiểu được những tri thức mà con người đã tiếp thu được. Từ những hiểu biết này con người sàng lọc và suy luận từ những hiểu biết đã có để đi đến những hiểu biết cao hơn, rộng hơn, đầy đủ và bao quát hơn.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">43. Trong các ví dụ sau, đâu không phải là hiện tượng tâm lý?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q43" value="0"> Học sinh cảm thấy tự tin khi trả lời đúng câu hỏi của thầy cô.</label>
+                <label class="option"><input type="radio" name="q43" value="0"> Học sinh hồi hộp khi chờ công bố kết quả kỳ thi quan trọng.</label>
+                <label class="option"><input type="radio" name="q43" value="1"> Học sinh toát mồ hôi nhiều khi chạy nhanh dưới sân trường.</label>
+                <label class="option"><input type="radio" name="q43" value="0"> Học sinh buồn bã khi không đạt được thành tích như mong muốn.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">44. Trong các ví dụ sau, đâu thể hiện rõ tính chủ thể của tâm lý người?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q44" value="1"> Hai sinh viên cùng đọc một cuốn sách, một người thấy rất thú vị trong khi người kia lại thấy khó khăn và khó hiểu.</label>
+                <label class="option"><input type="radio" name="q44" value="0"> Thanh niên thế hệ 8X thường mơ ước có việc làm ổn định, còn thế hệ Gen Z lại coi trọng trải nghiệm và cơ hội khởi nghiệp.</label>
+                <label class="option"><input type="radio" name="q44" value="0"> Một học sinh tưởng tượng ra những chi tiết mới khi viết tiếp câu chuyện được thầy cô gợi ý.</label>
+                <label class="option"><input type="radio" name="q44" value="0"> Một sinh viên kiên trì luyện tập mỗi ngày để cải thiện kỹ năng thuyết trình trước đám đông.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">45. Trong quá trình nhận thức, nhận thức cảm tính và nhận thức lý tính có mối quan hệ như thế nào?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q45" value="1"> Nhận thức cảm tính là nền tảng của nhận thức lý tính, còn nhận thức lý tính khái quát và phát triển kết quả của nhận thức cảm tính</label>
+                <label class="option"><input type="radio" name="q45" value="0"> Nhận thức cảm tính và nhận thức lý tính hoàn toàn tách biệt, không có liên hệ, vì mỗi loại phản ánh hiện thực theo một cách riêng biệt.</label>
+                <label class="option"><input type="radio" name="q45" value="0"> Nhận thức lý tính xuất hiện trước, sau đó mới hình thành nhận thức cảm tính, do đó lý tính giữ vai trò quyết định trong phản ánh thế giới.</label>
+                <label class="option"><input type="radio" name="q45" value="0"> Nhận thức cảm tính có thể thay thế hoàn toàn cho nhận thức lý tính trong việc phản ánh hiện thực, vì nó trực tiếp phản ánh sự vật, hiện tượng.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">46. Trong lớp học, khi giảng viên vừa nói vừa chiếu slide, sinh viên chú ý nhiều hơn đến hình ảnh có màu sắc nổi bật thay vì chữ trắng đen. Đây là minh chứng cho:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q46" value="0"> Tính ảo ảnh</label>
+                <label class="option"><input type="radio" name="q46" value="1"> Tính lựa chọn của tri giác</label>
+                <label class="option"><input type="radio" name="q46" value="0"> Tính có ý nghĩa</label>
+                <label class="option"><input type="radio" name="q46" value="0"> Tính ổn định</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">47. Cách sáng tạo hình ảnh mới trong tưởng tượng được đặc trưng bởi việc đưa một đặc điểm, phẩm chất nào đó của sự vật – hiện tượng lên vị trí nổi bật nhằm tạo ấn tượng mạnh mẽ?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q47" value="0"> Chắp ghép</label>
+                <label class="option"><input type="radio" name="q47" value="1"> Nhấn mạnh</label>
+                <label class="option"><input type="radio" name="q47" value="0"> Điển hình hóa</label>
+                <label class="option"><input type="radio" name="q47" value="0"> Liên hợp</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">48. Một SV rời thư viện về ký túc xá, vẫn kể lại được định nghĩa và ví dụ vừa đọc dù không mở sách. Đây là:</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q48" value="0"> Nhận lại</label>
+                <label class="option"><input type="radio" name="q48" value="1"> Nhớ lại</label>
+                <label class="option"><input type="radio" name="q48" value="0"> Ghi nhớ không chủ định.</label>
+                <label class="option"><input type="radio" name="q48" value="0"> Quên tạm thời.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">49. Trong các ví dụ sau, tình huống nào thể hiện tính tự chủ của ý chí?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q49" value="0"> Một sinh viên đặt mục tiêu đạt học bổng và lập kế hoạch học tập chi tiết để theo đuổi.</label>
+                <label class="option"><input type="radio" name="q49" value="1"> Một học sinh kiềm chế cảm xúc, không nổi nóng khi bị bạn trêu chọc trong lớp.</label>
+                <label class="option"><input type="radio" name="q49" value="0"> Một sinh viên kiên nhẫn làm lại thí nghiệm nhiều lần dù liên tục thất bại.</label>
+                <label class="option"><input type="radio" name="q49" value="0"> Một học sinh dứt khoát chọn hướng giải quyết sau khi cân nhắc các phương án khác nhau.</label>
+            </div>
+        </div>
+
+        <div class="q-card">
+            <span class="q-text">50. Một học sinh khi học Lịch sử đã đối chiếu Cách mạng tháng Tám ở Việt Nam với Cách mạng Tháng Mười Nga để rút ra điểm chung và sự khác biệt trong nguyên nhân thắng lợi. Thao tác tư duy nào được vận dụng chủ yếu trong trường hợp này?</span>
+            <div class="options-grid">
+                <label class="option"><input type="radio" name="q50" value="0"> Phân tích</label>
+                <label class="option"><input type="radio" name="q50" value="0"> Tổng hợp</label>
+                <label class="option"><input type="radio" name="q50" value="1"> So sánh</label>
+                <label class="option"><input type="radio" name="q50" value="0"> Khái quát hóa</label>
+            </div>
+        </div>
+
+    <div id="submit-area">
+        <button type="button" id="btn-reset" onclick="resetQuiz()">LÀM LẠI</button>
+        <button type="button" id="btn-submit" onclick="grade()">NỘP BÀI</button>
+    </div>
+</form>
+
+<script>
+    function grade() {
+        let score = 0;
+        const form = document.getElementById('quizForm');
+        const questions = form.querySelectorAll('.q-card');
+        let total = questions.length;
+        let answered = 0;
+
+        questions.forEach((q) => {
+            const selected = q.querySelector('input:checked');
+            const allRadios = q.querySelectorAll('input');
+            
+            if(selected) answered++;
+
+            allRadios.forEach(radio => {
+                const label = radio.parentElement;
+                label.classList.remove('correct', 'wrong');
+                if(radio.value === "1") {
+                    label.classList.add('correct'); // Hiện đáp án đúng
+                }
+                if(selected && selected === radio && radio.value === "0") {
+                    label.classList.add('wrong'); // Đánh dấu lựa chọn sai của người dùng
+                }
+            });
+
+            if (selected && selected.value === "1") score++;
+        });
+
+        if(answered < total) {
+            if(!confirm("Bạn chưa làm hết các câu. Vẫn muốn nộp bài chứ?")) return;
+        }
+
+        const resultBox = document.getElementById('result-box');
+        resultBox.style.display = 'block';
+        let percentage = Math.round(score/total*100);
+        
+        let color = "#fee2e2"; // Đỏ nhạt
+        if(percentage >= 50) color = "#fef9c3"; // Vàng nhạt
+        if(percentage >= 80) color = "#dcfce7"; // Xanh nhạt
+        
+        resultBox.style.background = color;
+        resultBox.innerHTML = `Kết quả: ${score}/${total} câu đúng (${percentage}%)`;
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    function resetQuiz() {
+        if(confirm("Bạn muốn xóa hết kết quả để làm lại từ đầu?")) {
+            document.getElementById('quizForm').reset();
+            document.getElementById('result-box').style.display = 'none';
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('correct', 'wrong'));
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    }
+</script>
+
+</body>
+</html>
